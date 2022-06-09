@@ -236,12 +236,14 @@ export default {
             );
             this.marketer_data = marketer.data;
             this.marketer_funds = marketer.data.details;
-            this.marketer_reg = marketer.data.details.filter(
-                (item) => item.type === "register"
-            );
-            this.marketer_sub = marketer.data.details.filter(
-                (item) => item.type === "subscribe"
-            );
+            if (marketer.data.details.length > 0) {
+                this.marketer_reg = marketer.data.details.filter(
+                    (item) => item.type === "register"
+                );
+                this.marketer_sub = marketer.data.details.filter(
+                    (item) => item.type === "subscribe"
+                );
+            }
             this.paymentsRows = marketer.data.details;
             this.usersRows = marketer.data.details;
         } catch (err) {
