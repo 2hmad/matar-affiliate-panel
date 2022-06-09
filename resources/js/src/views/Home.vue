@@ -7,7 +7,10 @@
                         class="card-body d-flex justify-content-between align-items-center"
                     >
                         <div class="truncate">
-                            <h2 class="mb-25 font-weight-bolder">
+                            <h2
+                                class="mb-25 font-weight-bolder"
+                                v-if="marketer_funds.length > 0"
+                            >
                                 {{
                                     marketer_funds.reduce(
                                         (prev, curr) => prev + curr.amount,
@@ -15,6 +18,7 @@
                                     )
                                 }}$
                             </h2>
+                            <h2 class="mb-25 font-weight-bolder" v-else>0$</h2>
                             <span>اجمالي الايرادات</span>
                         </div>
                     </div>
@@ -50,7 +54,10 @@
                         class="card-body d-flex justify-content-between align-items-center"
                     >
                         <div class="truncate">
-                            <h2 class="mb-25 font-weight-bolder">
+                            <h2
+                                class="mb-25 font-weight-bolder"
+                                v-if="marketer_reg.length > 0"
+                            >
                                 {{
                                     marketer_reg.reduce(
                                         (prev, curr) => prev + curr.amount,
@@ -58,6 +65,7 @@
                                     )
                                 }}$
                             </h2>
+                            <h2 class="mb-25 font-weight-bolder" v-else>0$</h2>
                             <span>اجمالي عمولة التسجيل</span>
                         </div>
                         <span
@@ -77,7 +85,10 @@
                         class="card-body d-flex justify-content-between align-items-center"
                     >
                         <div class="truncate">
-                            <h2 class="mb-25 font-weight-bolder">
+                            <h2
+                                class="mb-25 font-weight-bolder"
+                                v-if="marketer_sub.length > 0"
+                            >
                                 {{
                                     marketer_sub.reduce(
                                         (prev, curr) => prev + curr.amount,
@@ -85,6 +96,7 @@
                                     )
                                 }}$
                             </h2>
+                            <h2 class="mb-25 font-weight-bolder" v-else>0$</h2>
                             <span>اجمالي عمولة الاشتراك</span>
                         </div>
                         <span
