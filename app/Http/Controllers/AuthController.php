@@ -15,13 +15,12 @@ class AuthController extends Controller
         $checkEmail = Marketers::where('email', $request->email)->first();
         if ($checkEmail !== null) {
             if (Hash::check($request->password, $checkEmail->password)) {
-                $request->session()->put('email', $request->email);
-                return redirect('/dashboard');
+                return $checkEmail;
             } else {
-                return redirect()->back()->with('error', 'كلمة المرور خاطئة');
+                return response()->json(['error' => 'كلمة المرور خاطئة'], 404);
             }
         } else {
-            return redirect()->back()->with('error', 'المستخدم غير موجود');
+            return response()->json(['error' => 'المستخدم غير موجود'], 404);
         }
     }
     public function createAccount(Request $request)
@@ -39,9 +38,8 @@ class AuthController extends Controller
                 'ban' => 0,
                 'active' => 0
             ]);
-            return redirect()->back()->with('success', 'تم ارسال طلب للأنضمام لمسوقي تطبيق مطر');
         } else {
-            return redirect()->back()->with('error', 'البريد الالكتروني مسجل من قبل');
+            return response()->json(['error' => 'البريد الالكتروني مستخدم من قبل'], 404);
         }
     }
 }

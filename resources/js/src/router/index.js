@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -15,10 +16,41 @@ const router = new VueRouter({
             name: "home",
             component: () => import("@/views/Home.vue"),
             meta: {
-                pageTitle: "Home",
+                pageTitle: "الرئيسية",
+                requiresAuth: true,
                 breadcrumb: [
                     {
-                        text: "Home",
+                        text: "الرئيسية",
+                        active: true,
+                    },
+                ],
+            },
+        },
+        {
+            path: "/transactions",
+            name: "transactions",
+            component: () => import("@/views/Transactions.vue"),
+            meta: {
+                pageTitle: "اخر المعاملات",
+                requiresAuth: true,
+                breadcrumb: [
+                    {
+                        text: "اخر المعاملات",
+                        active: true,
+                    },
+                ],
+            },
+        },
+        {
+            path: "/users",
+            name: "users",
+            component: () => import("@/views/Users.vue"),
+            meta: {
+                pageTitle: "المستخدمين",
+                requiresAuth: true,
+                breadcrumb: [
+                    {
+                        text: "المستخدمين",
                         active: true,
                     },
                 ],
@@ -30,6 +62,7 @@ const router = new VueRouter({
             component: () => import("@/views/Login.vue"),
             meta: {
                 layout: "full",
+                guest: true,
             },
         },
         {
@@ -38,6 +71,7 @@ const router = new VueRouter({
             component: () => import("@/views/Register.vue"),
             meta: {
                 layout: "full",
+                guest: true,
             },
         },
         {
@@ -62,6 +96,30 @@ router.afterEach(() => {
     const appLoading = document.getElementById("loading-bg");
     if (appLoading) {
         appLoading.style.display = "none";
+    }
+});
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some((record) => record.meta.requiresAuth)) {
+        if (store.getters.isAuthenticated) {
+            next();
+            return;
+        }
+        next("/login");
+    } else {
+        next();
+    }
+});
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some((record) => record.meta.guest)) {
+        if (store.getters.isAuthenticated) {
+            next("/");
+            return;
+        }
+        next();
+    } else {
+        next();
     }
 });
 

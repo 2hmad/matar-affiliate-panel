@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +15,4 @@ use App\Http\Controllers\HomeController;
 */
 
 
-Route::get('/{any}', function () {
-    return view('application');
-})->where('any', '.*');
+Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');
