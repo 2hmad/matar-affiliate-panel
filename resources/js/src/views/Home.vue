@@ -32,9 +32,13 @@
                         class="card-body d-flex justify-content-between align-items-center"
                     >
                         <div class="truncate">
-                            <h2 class="mb-25 font-weight-bolder">
+                            <h2
+                                class="mb-25 font-weight-bolder"
+                                v-if="marketer_data.details.length > 0"
+                            >
                                 {{ marketer_data.details.length }}
                             </h2>
+                            <h2 class="mb-25 font-weight-bolder" v-else>0</h2>
                             <span>عدد المسجلين من خلالك</span>
                         </div>
                         <span
