@@ -229,7 +229,7 @@ export default {
     async mounted() {
         try {
             let marketer = await axios.post(
-                `/api/marketer/`,
+                `/api/marketer`,
                 { id: JSON.parse(localStorage.getItem("MatarMarketer")).id },
                 {
                     headers: {
