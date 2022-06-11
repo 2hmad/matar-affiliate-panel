@@ -21,4 +21,7 @@ Route::post('register', [AuthController::class, 'createAccount']);
 
 Route::group(['middleware' => 'checkToken'], function () {
     Route::post('marketer', [MarketersController::class, 'getByID']);
+    Route::post('withdrawals', [MarketersController::class, 'withdrawal']);
+    Route::post('payout', [MarketersController::class, 'payout']);
+    Route::post('update-payout', [MarketersController::class, 'updatePayout']);
 });

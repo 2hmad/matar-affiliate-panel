@@ -42,6 +42,36 @@ const router = new VueRouter({
             },
         },
         {
+            path: "/withdraw",
+            name: "withdraw",
+            component: () => import("@/views/Withdraws.vue"),
+            meta: {
+                pageTitle: "عمليات السحب",
+                requiresAuth: true,
+                breadcrumb: [
+                    {
+                        text: "عمليات السحب",
+                        active: true,
+                    },
+                ],
+            },
+        },
+        {
+            path: "/payout-settings",
+            name: "payout-settings",
+            component: () => import("@/views/PayoutSettings.vue"),
+            meta: {
+                pageTitle: "اعدادات الدفع",
+                requiresAuth: true,
+                breadcrumb: [
+                    {
+                        text: "اعدادات الدفع",
+                        active: true,
+                    },
+                ],
+            },
+        },
+        {
             path: "/users",
             name: "users",
             component: () => import("@/views/Users.vue"),

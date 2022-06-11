@@ -115,46 +115,6 @@
                 </div>
             </div>
         </div>
-        <h4>اخر الدفعات المستلمة</h4>
-        <vue-good-table
-            :columns="paymentsColumns"
-            :rows="paymentsRows"
-            :search-options="{
-                enabled: true,
-            }"
-        >
-            <div slot="emptystate">لا توجد بيانات</div>
-            <template slot="table-row" slot-scope="props">
-                <span
-                    v-if="props.column.field === 'fullName'"
-                    class="text-nowrap"
-                >
-                    <span class="text-nowrap">{{ props.row.fullName }}</span>
-                </span>
-
-                <span v-else-if="props.column.field === 'method'">
-                    <span v-if="props.row.method === 'register'"> تسجيل </span>
-                    <span v-else> الاشتراك </span>
-                </span>
-
-                <span v-else-if="props.column.field === 'action'">
-                    <span>
-                        <router-link :to="`/outlook/${props.row.id}`">
-                            <feather-icon
-                                icon="EyeIcon"
-                                size="16"
-                                class="text-body"
-                            />
-                        </router-link>
-                    </span>
-                </span>
-
-                <!-- Column: Common -->
-                <span v-else>
-                    {{ props.formattedRow[props.column.field] }}
-                </span>
-            </template>
-        </vue-good-table>
     </div>
 </template>
 
@@ -175,28 +135,6 @@ export default {
         return {
             pageLength: 5,
             dir: false,
-            paymentsColumns: [
-                {
-                    label: "#",
-                    field: "id",
-                    hidden: true,
-                },
-                {
-                    label: "طريقة التحصيل",
-                    field: "method",
-                    sortable: false,
-                },
-                {
-                    label: "تاريخ التحصيل",
-                    field: "date",
-                    sortable: false,
-                },
-                {
-                    label: "المبلغ",
-                    field: "amount",
-                },
-            ],
-            paymentsRows: [],
             usersColumns: [
                 {
                     label: "#",

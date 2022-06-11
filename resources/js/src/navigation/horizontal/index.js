@@ -14,6 +14,16 @@ export default [
                 icon: "DollarSignIcon",
             },
             {
+                title: "السحب",
+                route: "withdraw",
+                icon: "GitPullRequestIcon",
+            },
+            {
+                title: "اعدادات الدفع",
+                route: "payout-settings",
+                icon: "SendIcon",
+            },
+            {
                 title: "المستخدمين",
                 route: "users",
                 icon: "UsersIcon",

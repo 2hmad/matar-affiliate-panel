@@ -20,8 +20,16 @@
                         v-model="form.password"
                     />
                 </b-form-group>
-                <div>
+                <div style="display: flex; justify-content: space-between">
                     <b-form-checkbox id="remember">تذكرني</b-form-checkbox>
+                    <p style="text-align: Center; font-size: 14px">
+                        <router-link
+                            to="/forget-password"
+                            style="color: #5e50ee"
+                        >
+                            نسيت كلمة المرور؟
+                        </router-link>
+                    </p>
                 </div>
                 <b-button variant="primary" type="submit">
                     تسجيل الدخول
