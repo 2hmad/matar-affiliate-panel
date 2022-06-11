@@ -115,12 +115,49 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="truncate">
+                            <h4>الكوبون الخاص بك</h4>
+                            <span>
+                                شاركه مع الاصدقاء للاشتراك او التسجيل من خلاله
+                                في تطبيق مطر لتزيد من ايراداتك
+                            </span>
+                        </div>
+                        <br />
+                        <b-input-group class="input-group-merge">
+                            <b-form-input
+                                id="basic-password1"
+                                :value="coupon"
+                                disabled
+                            />
+                            <b-input-group-append is-text>
+                                <feather-icon
+                                    icon="CopyIcon"
+                                    class="cursor-pointer"
+                                    @click="copy"
+                                />
+                            </b-input-group-append>
+                        </b-input-group>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import { BCard, BCardText, BLink } from "bootstrap-vue";
-import { VueGoodTable } from "vue-good-table";
+import {
+    BCard,
+    BCardText,
+    BLink,
+    BInputGroup,
+    BFormInput,
+    BInputGroupAppend,
+    BFormGroup,
+} from "bootstrap-vue";
 import axios from "axios";
 import "vue-good-table/dist/vue-good-table.css";
 export default {
@@ -128,11 +165,14 @@ export default {
         BCard,
         BCardText,
         BLink,
-        VueGoodTable,
-        axios,
+        BFormInput,
+        BInputGroupAppend,
+        BInputGroup,
+        BFormGroup,
     },
     data() {
         return {
+            coupon: JSON.parse(localStorage.getItem("MatarMarketer")).coupon,
             pageLength: 5,
             dir: false,
             usersColumns: [
@@ -157,7 +197,6 @@ export default {
                 },
             ],
             usersRows: [],
-
             marketer_data: [],
             marketer_funds: [],
             marketer_reg: [],
@@ -191,6 +230,13 @@ export default {
         } catch (err) {
             console.log(err);
         }
+    },
+    methods: {
+        copy() {
+            var copyText = this.coupon;
+            navigator.clipboard.writeText(copyText);
+            alert("تم نسخ الكوبون: " + copyText);
+        },
     },
 };
 </script>
