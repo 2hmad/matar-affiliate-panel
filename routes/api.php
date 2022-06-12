@@ -24,4 +24,5 @@ Route::group(['middleware' => 'checkToken'], function () {
     Route::post('withdrawals', [MarketersController::class, 'withdrawal']);
     Route::post('payout', [MarketersController::class, 'payout']);
     Route::post('update-payout', [MarketersController::class, 'updatePayout']);
+    Route::post('update-profile', [MarketersController::class, 'updateProfile']);
 });

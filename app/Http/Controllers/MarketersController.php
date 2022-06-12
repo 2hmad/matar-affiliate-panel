@@ -31,6 +31,8 @@ class MarketersController extends Controller
                 'bank_name' => $request->bankName,
                 'bank_account' => $request->bankAccountName,
                 'bank_account_number' => $request->bankAccountNumber,
+                'bank_swift' => $request->bankSwift,
+                'full_name' => $request->fullName,
                 'id_number' => $request->idNumber,
             ]);
         } else {
@@ -41,8 +43,24 @@ class MarketersController extends Controller
                 'bank_name' => $request->bankName,
                 'bank_account' => $request->bankAccountName,
                 'bank_account_number' => $request->bankAccountNumber,
+                'bank_swift' => $request->bankSwift,
+                'full_name' => $request->fullName,
                 'id_number' => $request->idNumber,
             ]);
         }
+    }
+    public function updateProfile(Request $request)
+    {
+        return Marketers::where('token', $request->header('token'))->update([
+            'full_name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'country' => $request->country,
+            'facebook_acc' => $request->facebook_acc,
+            'twitter_acc' => $request->twitter_acc,
+            'instagram_acc' => $request->instagram_acc,
+            'tiktok_acc' => $request->tiktok_acc,
+        ]);
     }
 }

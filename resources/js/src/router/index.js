@@ -87,6 +87,21 @@ const router = new VueRouter({
             },
         },
         {
+            path: "/profile",
+            name: "profile",
+            component: () => import("@/views/Profile.vue"),
+            meta: {
+                pageTitle: "البيانات الشخصية",
+                requiresAuth: true,
+                breadcrumb: [
+                    {
+                        text: "البيانات الشخصية",
+                        active: true,
+                    },
+                ],
+            },
+        },
+        {
             path: "/login",
             name: "login",
             component: () => import("@/views/Login.vue"),

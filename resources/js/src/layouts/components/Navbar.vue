@@ -39,7 +39,10 @@
                     />
                 </template>
 
-                <b-dropdown-item link-class="d-flex align-items-center">
+                <b-dropdown-item
+                    link-class="d-flex align-items-center"
+                    to="/profile"
+                >
                     <feather-icon size="16" icon="UserIcon" class="mr-50" />
                     <span>الملف الشخصي</span>
                 </b-dropdown-item>

@@ -99,8 +99,8 @@ export default {
                     sortable: false,
                 },
                 {
-                    label: "البريد الالكتروني",
-                    field: "email",
+                    label: "تاريخ التسجيل",
+                    field: "date",
                     sortable: false,
                 },
                 {

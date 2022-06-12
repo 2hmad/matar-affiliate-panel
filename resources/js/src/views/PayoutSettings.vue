@@ -73,6 +73,20 @@
                 />
             </b-form-group>
             <b-form-group
+                label="رمز سويفت"
+                label-for="bank-swift"
+                v-if="form.method === 'bank-transfer'"
+            >
+                <b-form-input id="bank-swift" v-model="form.bankSwift" />
+            </b-form-group>
+            <b-form-group
+                label="الاسم الرباعي"
+                label-for="full-name"
+                v-if="form.method === 'western-union'"
+            >
+                <b-form-input id="full-name" v-model="form.fullName" />
+            </b-form-group>
+            <b-form-group
                 label="رقم بطاقة الهوية"
                 label-for="id-number"
                 v-if="form.method === 'western-union'"
@@ -124,6 +138,8 @@ export default {
                 bankName: "",
                 bankAccountName: "",
                 bankAccountNumber: "",
+                bankSwift: "",
+                fullName: "",
                 idNumber: "",
             },
         };
@@ -145,6 +161,8 @@ export default {
             this.form.bankName = marketer.data.bank_name;
             this.form.bankAccountName = marketer.data.bank_account;
             this.form.bankAccountNumber = marketer.data.bank_account_number;
+            this.form.bankSwift = marketer.data.bank_swift;
+            this.form.fullName = marketer.data.full_name;
             this.form.idNumber = marketer.data.id_number;
         } catch (err) {
             console.log(err);
