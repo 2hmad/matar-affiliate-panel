@@ -252,6 +252,9 @@
             <b-form-group label="حساب تيك توك" label-for="tiktok_acc">
                 <b-form-input id="tiktok_acc" v-model="form.tiktok_acc" />
             </b-form-group>
+            <b-form-group label="حساب سناب شات" label-for="snapchat_acc">
+                <b-form-input id="snapchat_acc" v-model="form.snapchat_acc" />
+            </b-form-group>
             <b-button variant="success" type="submit">تعديل البيانات</b-button>
         </b-form>
     </div>
@@ -309,6 +312,8 @@ export default {
                     .instagram_acc,
                 tiktok_acc: JSON.parse(localStorage.getItem("MatarMarketer"))
                     .tiktok_acc,
+                snapchat_acc: JSON.parse(localStorage.getItem("MatarMarketer"))
+                    .snapchat_acc,
             },
         };
     },

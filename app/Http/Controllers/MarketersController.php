@@ -61,6 +61,7 @@ class MarketersController extends Controller
             'twitter_acc' => $request->twitter_acc,
             'instagram_acc' => $request->instagram_acc,
             'tiktok_acc' => $request->tiktok_acc,
+            'snapchat_acc' => $request->snapchat_acc,
         ]);
     }
 }
