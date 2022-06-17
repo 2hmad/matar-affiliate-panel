@@ -40,6 +40,15 @@
                         انضم الينا الان
                     </router-link>
                 </p>
+                <a
+                    href="https://rain-app.com"
+                    style="margin-right: auto; margin-left: auto"
+                >
+                    <b-button variant="success">
+                        <feather-icon icon="HomeIcon" />
+                        الرجوع الي الرئيسية
+                    </b-button>
+                </a>
             </b-form>
         </div>
     </div>
@@ -64,6 +73,7 @@ import {
 } from "bootstrap-vue";
 import store from "@/store/index";
 import { mapActions } from "vuex";
+import FeatherIcon from "../@core/components/feather-icon/FeatherIcon.vue";
 
 export default {
     components: {
@@ -80,6 +90,7 @@ export default {
         BImg,
         BForm,
         BButton,
+        FeatherIcon,
     },
     data() {
         return {

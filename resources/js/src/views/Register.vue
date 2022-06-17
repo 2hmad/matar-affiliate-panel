@@ -1,22 +1,5 @@
 <template>
     <div id="app">
-        <div class="container">
-            <nav class="navbar-mobile">
-                <button class="toggle" @click="openNav">
-                    <img src="/assets/images/bar.svg" />
-                </button>
-                <div class="overlay">
-                    <button class="close" @click="closeNav">
-                        <img src="/assets/images/close.svg" />
-                    </button>
-                    <ul></ul>
-                </div>
-            </nav>
-            <nav class="navbar-desktop">
-                <ul></ul>
-            </nav>
-        </div>
-
         <div class="container" style="margin-top: 80px">
             <h3 style="text-align: center; margin-bottom: 0">تسجيل حساب</h3>
             <p style="text-align: center; font-size: 15px">
@@ -330,8 +313,18 @@
                             سجل دخولك الان
                         </router-link>
                     </p>
+                    <a
+                        href="https://rain-app.com"
+                        style="margin-right: auto; margin-left: auto"
+                    >
+                        <b-button variant="success">
+                            <feather-icon icon="HomeIcon" />
+                            الرجوع الي الرئيسية
+                        </b-button>
+                    </a>
                 </b-form>
             </validation-observer>
+            <br />
         </div>
     </div>
 </template>
@@ -423,14 +416,6 @@ export default {
                         });
                 }
             });
-        },
-        openNav() {
-            document.querySelector(".navbar-mobile .overlay").style.display =
-                "block";
-        },
-        closeNav() {
-            document.querySelector(".navbar-mobile .overlay").style.display =
-                "none";
         },
     },
     mounted() {
