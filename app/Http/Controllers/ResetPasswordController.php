@@ -71,7 +71,7 @@ class ResetPasswordController extends Controller
             $check = ChangePassword::where('token', $request->token)->first();
             if ($check !== null) {
                 Marketers::where('email', $check->marketer)->update([
-                    'password' => Hash::make($request->password)
+                    'password' => Hash::make($request->newPassword)
                 ]);
                 return ChangePassword::where('token', $request->token)->delete();
             } else {
