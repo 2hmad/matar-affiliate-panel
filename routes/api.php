@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MarketersController;
+use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [AuthController::class, 'loginAccount']);
 Route::post('register', [AuthController::class, 'createAccount']);
+Route::post('send-reset-password', [ResetPasswordController::class, 'send_reset_password']);
+Route::post('check-reset-token', [ResetPasswordController::class, 'check_reset_password_code']);
+Route::post('reset-password', [ResetPasswordController::class, 'reset_password']);
 
 Route::group(['middleware' => 'checkToken'], function () {
     Route::post('marketer', [MarketersController::class, 'getByID']);

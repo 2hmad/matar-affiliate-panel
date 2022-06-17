@@ -120,6 +120,24 @@ const router = new VueRouter({
             },
         },
         {
+            path: "/forget-password",
+            name: "forget-password",
+            component: () => import("@/views/ForgetPassword.vue"),
+            meta: {
+                layout: "full",
+                guest: true,
+            },
+        },
+        {
+            path: "/reset-password/:token",
+            name: "reset-password",
+            component: () => import("@/views/ResetPassword.vue"),
+            meta: {
+                layout: "full",
+                guest: true,
+            },
+        },
+        {
             path: "/error-404",
             name: "error-404",
             component: () => import("@/views/error/Error404.vue"),

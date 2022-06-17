@@ -416,7 +416,7 @@ export default {
                         .post("/api/register", this.form)
                         .then((success) => {
                             alert("تم تسجيل الحساب ، وقيد المراجعه الان");
-                            location.reload();
+                            location.href = "/login";
                         })
                         .catch((err) => {
                             alert(err.error);
