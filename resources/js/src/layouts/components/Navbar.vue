@@ -98,6 +98,7 @@ export default {
     methods: {
         async logout() {
             await this.$store.dispatch("LogOut");
+            localStorage.removeItem("MatarMarketer");
             this.$router.push("/login");
         },
     },

@@ -36,7 +36,6 @@ const actions = {
     async LogOut({ commit }) {
         const user = null;
         commit("logout", user);
-        localStorage.removeItem("MatarMarketer");
     },
 };
 const mutations = {
